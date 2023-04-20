@@ -1,6 +1,7 @@
 import MemoryGame
 import GuessGame
 import CurrencyRouletteGame
+import Score
 
 games = {
     1: MemoryGame.play,
@@ -44,6 +45,7 @@ def load_game():
             game_number = input(game_number_message)
 
     if games[game_number](game_difficulty):
+        Score.add_score(game_difficulty)
         print('You win!')
     else:
         print('You lose!')
