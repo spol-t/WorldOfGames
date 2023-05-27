@@ -1,0 +1,6 @@
+Flask==2.2.3
+forex-python==1.8
+py-currency-converter==1.2.0
+requests==2.28.2
+selenium==4.8.0
+urllib3==1.26.14
