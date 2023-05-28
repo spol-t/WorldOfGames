@@ -20,7 +20,7 @@ def main():
     if test_scores_service():
         return sys.exit(0)
     else:
-        return sys.exit(-1)
+        return sys.exit(1)
 
 
 
