@@ -1,14 +1,16 @@
 import sys
-
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
-my_driver = webdriver.Chrome('~/Downloads/chromedriver')
+webdriver_service = Service('~/Downloads/chromedriver')
+my_driver = webdriver.Chrome(service=webdriver_service)
 
 
-def test_scores_service(url='http://localhost:5000'):
+def test_scores_service(url='http://127.0.0.1:8777'):
     my_driver.get(url)
-    score_string = str(my_driver.find_element(By.ID, 'score'))
+    score_element = my_driver.find_element(By.ID, 'score')
+    score_string = score_element.text
     score = int(score_string.split()[-1])
     if 0 < score < 1000:
         return True
@@ -17,12 +19,12 @@ def test_scores_service(url='http://localhost:5000'):
 
 
 def main():
-    if test_scores_service():
+    results = test_scores_service()
+    my_driver.quit()
+    if results:
         return sys.exit(0)
     else:
         return sys.exit(1)
 
 
-
-
-
+main()

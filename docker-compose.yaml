@@ -2,7 +2,7 @@ version: '3'
 
 services:
   wold_of_games_app:
-    image: WoG-Tomer
+    image: wog
     build:
       context: .
       dockerfile: Dockerfile
