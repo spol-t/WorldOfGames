@@ -7,7 +7,7 @@ webdriver_service = Service('~/Downloads/chromedriver')
 my_driver = webdriver.Chrome(service=webdriver_service)
 
 
-def test_scores_service(url='http://127.0.0.1:8777'):
+def test_scores_service(url='http://127.0.0.1:5001'):
     my_driver.get(url)
     score_element = my_driver.find_element(By.ID, 'score')
     score_string = score_element.text
